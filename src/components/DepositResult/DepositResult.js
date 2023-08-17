@@ -7,7 +7,6 @@ const formatter = new Intl.NumberFormat('ko-KR', {
 });
 
 const DepositResult = (props) => {
-    console.log(props.resultData);
     const mode = props.depositMode;
     return (
         <Card>

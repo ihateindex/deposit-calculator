@@ -4,6 +4,7 @@ import style from './ConvertDepositsInput.module.css';
 
 const ConvertDepositInput = (props) => {
     const mode = props.depositMode;
+    const conversionUnits = props.conversionUnits;
     const [conversionRate, setConversionRate] = useState('');
     const [etcConversionRate, setEtcConversionRate] = useState('');
     const [etcReadonly, setEtcReadonly] = useState(true);
@@ -16,23 +17,32 @@ const ConvertDepositInput = (props) => {
         props.calculateHandler('conversion-rate', value);
     };
 
+    const onClickHandler = (event) => {
+        event.preventDefault();
+        // console.log(event.target.value);
+        props.unitHandler(event.target.value);
+    };
+
     return (
         <Card>
             <div className={`${style['title']}`}>
                 <p>보증금 전환</p>
-                {/* <div className={`${style['tab-bar']}`}>
-                    <div className={`${style['tab-menu']} ${style['is-active']}`}>
-                        <p className={`${style['tab-text']}`}>
-                            <span>비율</span>
-                        </p>
+                <div className={`${style['nav']}`}>
+                    <p>단위</p>
+                    <div className={`${style['tab-bar']}`}>
+                        <button value="1M" className={conversionUnits === '1M' ? `${style['tab-menu']} ${style['is-active']}` : `${style['tab-menu']}`} onClick={onClickHandler}>
+                            <p className={`${style['tab-text']}`}>
+                                <span>100만</span>
+                            </p>
+                        </button>
+                        <button value="10K" className={conversionUnits === '10K' ? `${style['tab-menu']} ${style['is-active']}` : `${style['tab-menu']}`} onClick={onClickHandler}>
+                            <p className={`${style['tab-text']}`}>
+                                <span>1만</span>
+                            </p>
+                        </button>
+                        <div className={`${style['tab-indicator']}`} style={conversionUnits === '1M' ? { left: '0' } : { left: '50%' }}></div>
                     </div>
-                    <div className={`${style['tab-menu']}`}>
-                        <p className={`${style['tab-text']}`}>
-                            <span>금액</span>
-                        </p>
-                    </div>
-                    <div className={`${style['tab-indicator']}`}></div>
-                </div> */}
+                </div>
             </div>
             <div className={`${style['input-group']}`}>
                 <div>

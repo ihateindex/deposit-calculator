@@ -23,6 +23,16 @@
     line-height: normal;
 }
 
+.title .nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.title .nav p {
+    font-size: 0.8125rem;
+}
+
 .tab-bar {
     border-radius: 0.5rem;
     background: #f5f5f5;
@@ -37,6 +47,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
 }
 
 .tab-menu p {
@@ -54,6 +65,7 @@
 .tab-text {
     position: relative;
     z-index: 2;
+    pointer-events: none;
 }
 
 .tab-indicator {
@@ -66,6 +78,7 @@
     top: 0;
     z-index: 1;
     transform: translate3d(0rem, 0px, 0px) scale(0.9, 0.8);
+    pointer-events: none;
 }
 
 .input-group {
