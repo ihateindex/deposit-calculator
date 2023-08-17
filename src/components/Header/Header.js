@@ -5,7 +5,7 @@ const Header = (props) => {
     const mode = props.depositMode;
     const onClickHandler = (event) => {
         event.preventDefault();
-        console.log(event.target.value);
+        // console.log(event.target.value);
         props.modeHandler(event.target.value);
     };
 
