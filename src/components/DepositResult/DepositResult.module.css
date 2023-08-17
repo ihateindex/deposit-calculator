@@ -1,0 +1,69 @@
+.result {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.title {
+    color: #464d52;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 0.5rem;
+}
+
+.number {
+    color: #464d52;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.badge {
+    border-radius: 1.875rem;
+    padding: 0.31rem 0.5rem;
+    display: flex;
+    gap: 0.13rem;
+    margin-top: 0.25rem;
+}
+
+.badge.up {
+    background: #fceaee;
+}
+.badge.down {
+    background: #eff2ff;
+}
+
+.badge span {
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.badge.up span {
+    color: #eb5374;
+}
+
+.badge.down span {
+    color: #5673eb;
+}
+
+.badge svg {
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+.badge.up svg path {
+    fill: #eb5374;
+}
+.badge.down svg path {
+    fill: #5673eb;
+}

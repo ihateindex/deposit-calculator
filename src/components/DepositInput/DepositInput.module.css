@@ -1,0 +1,37 @@
+.input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.56rem;
+    margin-bottom: 1.38rem;
+}
+
+.input-group:last-child {
+    margin-bottom: 0;
+}
+
+.label {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: #464d52;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-family: 'Spoqa Han Sans Neo';
+}
+
+.input {
+    padding: 0.7rem 0.75rem;
+    width: 14.5rem;
+    border-radius: 0.5rem;
+    background: #f5f5f5;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border: none;
+    color: #464d52;
+    font-family: 'Spoqa Han Sans Neo';
+}
