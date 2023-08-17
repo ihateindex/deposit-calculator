@@ -17,15 +17,15 @@ const ConvertDepositInput = (props) => {
         props.calculateHandler('conversion-rate', value);
     };
 
-    const onClickHandler = (event) => {
-        event.preventDefault();
-        // console.log(event.target.value);
-        props.unitHandler(event.target.value);
-    };
+    // const onClickHandler = (event) => {
+    //     event.preventDefault();
+    //     // console.log(event.target.value);
+    //     props.unitHandler(event.target.value);
+    // };
 
     return (
         <Card>
-            <div className={`${style['title']}`}>
+            {/* <div className={`${style['title']}`}>
                 <p>보증금 전환</p>
                 <div className={`${style['nav']}`}>
                     <p>단위</p>
@@ -43,7 +43,7 @@ const ConvertDepositInput = (props) => {
                         <div className={`${style['tab-indicator']}`} style={conversionUnits === '1M' ? { left: '0' } : { left: '50%' }}></div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className={`${style['input-group']}`}>
                 <div>
                     <p className={`${style['label']}`}>전환 비율</p>
@@ -55,6 +55,7 @@ const ConvertDepositInput = (props) => {
                                     value="60"
                                     name="conversion-rate"
                                     onChange={(event) => {
+                                        setEtcReadonly(true);
                                         inputChangeHandler(event.target.type, event.target.value);
                                     }}
                                 />
@@ -68,6 +69,7 @@ const ConvertDepositInput = (props) => {
                                     value="70"
                                     name="conversion-rate"
                                     onChange={(event) => {
+                                        setEtcReadonly(true);
                                         inputChangeHandler(event.target.type, event.target.value);
                                     }}
                                 />
@@ -81,6 +83,7 @@ const ConvertDepositInput = (props) => {
                                     value="80"
                                     name="conversion-rate"
                                     onChange={(event) => {
+                                        setEtcReadonly(true);
                                         inputChangeHandler(event.target.type, event.target.value);
                                     }}
                                 />

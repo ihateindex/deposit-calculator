@@ -20,7 +20,6 @@ const INITIAL_DEPOSIT_DATA = {
 
 function App() {
     const [depositMode, setDepositMode] = useState('increase');
-    const [conversionUnits, setConversionUnits] = useState('1M');
     const [depositData, setDepositData] = useState(INITIAL_DEPOSIT_DATA);
     const [resultData, setResultData] = useState(INITIAL_DEPOSIT_DATA);
     const modeHandler = (mode) => {
@@ -43,10 +42,6 @@ function App() {
             });
         }
     };
-    const unitHandler = (unit) => {
-        setConversionUnits(unit);
-    };
-
     const calculateHandler = (input, value) => {
         // console.log(input, value);
 
@@ -59,46 +54,29 @@ function App() {
     };
 
     const calculateDeposit = (mode, data) => {
-        // console.log(mode, data);
         const defaultDeposit = +data['default-deposit'];
         const defaultRent = +data['default-rent'];
         const conversionRate = +data['conversion-rate'] / 100;
         const conversionInterestRate = +data['conversion-interest-rate'] / 100;
-        function formatMillion(number) {
-            return Math.floor(number / 1000000) * 1000000;
-        }
-        function formatTenThousand(number) {
-            return Math.floor(number / 10000) * 10000;
-        }
-        function formatTen(number) {
-            return Math.floor(number / 10) * 10;
-        }
 
-        const conversionDeposit = (defaultRent * conversionRate * 12) / conversionInterestRate;
-
+        let conversionDeposit;
         let conversionRent;
-        if (conversionUnits === '1M') {
-            conversionRent = (formatMillion(conversionDeposit) * conversionInterestRate) / 12;
-        } else {
-            conversionRent = (formatTenThousand(conversionDeposit) * conversionInterestRate) / 12;
-        }
-
         let deposit;
         let rent;
         if (mode === 'increase') {
-            if (conversionUnits === '1M') {
-                deposit = defaultDeposit + formatMillion(conversionDeposit);
-            } else {
-                deposit = defaultDeposit + formatTenThousand(conversionDeposit);
-            }
+            // * 감소한 임대료
+            conversionRent = defaultRent * conversionRate;
+            // * 증가한 임대 보증금
+            conversionDeposit = (conversionRent * 12) / conversionInterestRate;
+            deposit = defaultDeposit + conversionDeposit;
             rent = defaultRent - conversionRent;
         }
         if (mode === 'decrease') {
-            if (conversionUnits === '1M') {
-                deposit = defaultDeposit - formatMillion(conversionDeposit);
-            } else {
-                deposit = defaultDeposit - formatTenThousand(conversionDeposit);
-            }
+            // * 감소한 임대 보증금
+            conversionDeposit = defaultDeposit * conversionRate;
+            // * 증가한 임대료
+            conversionRent = (conversionDeposit * conversionInterestRate) / 12;
+            deposit = defaultDeposit - conversionDeposit;
             rent = defaultRent + conversionRent;
         }
 
@@ -106,17 +84,17 @@ function App() {
             return {
                 ...prevData,
                 ['deposit']: deposit,
-                ['conversion-deposit']: conversionUnits === '1M' ? formatMillion(conversionDeposit) : formatTenThousand(conversionDeposit),
+                ['conversion-deposit']: conversionDeposit,
                 ['conversion-rate']: +data['conversion-rate'],
-                ['conversion-rent']: conversionUnits === '1M' ? formatTen(conversionRent) : conversionRent,
-                ['rent']: conversionUnits === '1M' ? formatTen(rent) : rent,
+                ['conversion-rent']: conversionRent,
+                ['rent']: rent,
             };
         });
     };
 
     useEffect(() => {
         calculateDeposit(depositMode, depositData);
-    }, [depositData, conversionUnits]);
+    }, [depositData]);
 
     return (
         <>
@@ -125,7 +103,7 @@ function App() {
                 <MainContainer>
                     <Header modeHandler={modeHandler} depositMode={depositMode}></Header>
                     <DepositInput depositData={depositData} calculateHandler={calculateHandler}></DepositInput>
-                    <ConvertDepositInput calculateHandler={calculateHandler} depositMode={depositMode} conversionUnits={conversionUnits} unitHandler={unitHandler}></ConvertDepositInput>
+                    <ConvertDepositInput calculateHandler={calculateHandler} depositMode={depositMode}></ConvertDepositInput>
                     <DepositResult resultData={resultData} depositMode={depositMode}></DepositResult>
                 </MainContainer>
             </div>
