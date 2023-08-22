@@ -112,6 +112,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    font-family: 'Spoqa Han Sans Neo';
 }
 
 .label .notice {
@@ -134,6 +135,7 @@
     line-height: normal;
     border: none;
     box-sizing: border-box;
+    font-family: 'Spoqa Han Sans Neo';
 }
 
 .input-wrapper .input {
