@@ -153,6 +153,10 @@
     line-height: normal;
 }
 
+.radio-wrapper input {
+    font-family: 'Spoqa Han Sans Neo';
+}
+
 .radio-wrapper .etc {
     display: flex;
     align-items: center;
