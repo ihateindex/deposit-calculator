@@ -49,7 +49,7 @@ const ConvertDepositInput = (props) => {
                     <p className={`${style['label']}`}>전환 비율</p>
                     <div className={`${style['radio-wrapper']}`}>
                         <div>
-                            <label>
+                            <label className={`${style['label']}`}>
                                 <input
                                     type="radio"
                                     value="60"
@@ -63,7 +63,7 @@ const ConvertDepositInput = (props) => {
                             </label>
                         </div>
                         <div>
-                            <label className="">
+                            <label className={`${style['label']}`}>
                                 <input
                                     type="radio"
                                     value="70"
@@ -77,7 +77,7 @@ const ConvertDepositInput = (props) => {
                             </label>
                         </div>
                         <div>
-                            <label className="">
+                            <label className={`${style['label']}`}>
                                 <input
                                     type="radio"
                                     value="80"
@@ -91,7 +91,7 @@ const ConvertDepositInput = (props) => {
                             </label>
                         </div>
                         <div className={`${style['etc']}`}>
-                            <label className="">
+                            <label className={`${style['label']}`}>
                                 <input
                                     type="radio"
                                     name="conversion-rate"
@@ -116,7 +116,7 @@ const ConvertDepositInput = (props) => {
                                     }}
                                     readOnly={etcReadonly ? true : false}
                                 />
-                                <label htmlFor="">%</label>
+                                <label className={`${style['label']}`}>%</label>
                             </div>
                         </div>
                     </div>
