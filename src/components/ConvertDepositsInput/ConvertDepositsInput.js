@@ -116,7 +116,7 @@ const ConvertDepositInput = (props) => {
                                     }}
                                     readOnly={etcReadonly ? true : false}
                                 />
-                                <label className={`${style['label']}`}>%</label>
+                                <label>%</label>
                             </div>
                         </div>
                     </div>
