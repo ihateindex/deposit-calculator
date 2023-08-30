@@ -112,6 +112,10 @@ function App() {
                         <br />
                         오차나 오류로 인해 발생하는 문제는 책임지지 않습니다.
                     </p>
+                    <div className="contact_us">
+                        <p>개선사항이나 문의는 이메일로 보내주세요😃</p>
+                        <a href="mailto:'raheeseong@gmail.com'">raheeseong@gmail.com</a>
+                    </div>
                 </MainContainer>
             </div>
         </>
