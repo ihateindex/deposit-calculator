@@ -73,9 +73,3 @@
 .badge.down svg path {
     fill: #5673eb;
 }
-
-@media (min-width: 600px) {
-    .item {
-        flex-basis: 25%;
-    }
-}
