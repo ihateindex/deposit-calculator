@@ -63,18 +63,20 @@ function App() {
         let conversionRent;
         let deposit;
         let rent;
+        // * 임대보증금 증가, 임대료 하락
         if (mode === 'increase') {
-            // * 감소한 임대료
+            // * 낮출 임대료(감소하는 임대료): 기본임대료 * 전환비율
             conversionRent = defaultRent * conversionRate;
-            // * 증가한 임대 보증금
+            // * 증가한 임대 보증금: 낮출 임대료 * 12(개월) / 전환이율(기본 6%)
             conversionDeposit = (conversionRent * 12) / conversionInterestRate;
             deposit = defaultDeposit + conversionDeposit;
             rent = defaultRent - conversionRent;
         }
+        // * 임대 보증금 감소, 임대료 증가
         if (mode === 'decrease') {
-            // * 감소한 임대 보증금
+            // * 낮출 임대 보증금(감소하는 임대 보증금): 기본보증금 * 전환비율
             conversionDeposit = defaultDeposit * conversionRate;
-            // * 증가한 임대료
+            // * 증가한 임대료: 낮출 임대 보증금 * 12(개월) / 전환이율(기본 2.5%)
             conversionRent = (conversionDeposit * conversionInterestRate) / 12;
             deposit = defaultDeposit - conversionDeposit;
             rent = defaultRent + conversionRent;
@@ -105,6 +107,11 @@ function App() {
                     <DepositInput depositData={depositData} calculateHandler={calculateHandler}></DepositInput>
                     <ConvertDepositInput calculateHandler={calculateHandler} depositMode={depositMode}></ConvertDepositInput>
                     <DepositResult resultData={resultData} depositMode={depositMode}></DepositResult>
+                    <p className="notice">
+                        본 계산기는 참고용입니다.
+                        <br />
+                        오차나 오류로 인해 발생하는 문제는 책임지지 않습니다.
+                    </p>
                 </MainContainer>
             </div>
         </>

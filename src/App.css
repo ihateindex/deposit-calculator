@@ -12,6 +12,15 @@ body {
     background-color: #f3f4f5;
 }
 
+.notice {
+    text-align: center;
+    color: #464d52;
+    font-size: 0.6875rem;
+    font-weight: normal;
+    line-height: 1.5;
+    font-family: 'Spoqa Han Sans Neo';
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
