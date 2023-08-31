@@ -34,6 +34,8 @@
     border-radius: 1.875rem;
     padding: 0.31rem 0.5rem;
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 0.13rem;
     margin-top: 0.25rem;
     font-family: 'Spoqa Han Sans Neo';
