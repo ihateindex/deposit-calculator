@@ -82,6 +82,9 @@ function App() {
             rent = defaultRent + conversionRent;
         }
 
+        // ! calculateDeposit 함수는 depositData 변경되면 발생하므로 변경될때 보증금,임대료,전환 비율,전환 보증금이 0보다 크다면 정상적으로 계산 시도한 것
+        // TODO: 정상 계산 시도시에 GA 이벤트 발생하도록 추가
+
         setResultData((prevData) => {
             return {
                 ...prevData,
