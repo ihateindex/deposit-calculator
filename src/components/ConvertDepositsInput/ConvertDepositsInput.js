@@ -17,33 +17,33 @@ const ConvertDepositInput = (props) => {
         props.calculateHandler('conversion-rate', value);
     };
 
-    // const onClickHandler = (event) => {
-    //     event.preventDefault();
-    //     // console.log(event.target.value);
-    //     props.unitHandler(event.target.value);
-    // };
+    const onClickHandler = (event) => {
+        event.preventDefault();
+        console.log(event.target.value);
+        // props.unitHandler(event.target.value);
+    };
 
     return (
         <Card>
-            {/* <div className={`${style['title']}`}>
+            <div className={`${style['title']}`}>
                 <p>보증금 전환</p>
                 <div className={`${style['nav']}`}>
-                    <p>단위</p>
+                    {/* <p>모드</p> */}
                     <div className={`${style['tab-bar']}`}>
-                        <button value="1M" className={conversionUnits === '1M' ? `${style['tab-menu']} ${style['is-active']}` : `${style['tab-menu']}`} onClick={onClickHandler}>
+                        <button value="ratio" className={conversionUnits === 'ratio' ? `${style['tab-menu']} ${style['is-active']}` : `${style['tab-menu']}`} onClick={onClickHandler}>
                             <p className={`${style['tab-text']}`}>
-                                <span>100만</span>
+                                <span>비율</span>
                             </p>
                         </button>
-                        <button value="10K" className={conversionUnits === '10K' ? `${style['tab-menu']} ${style['is-active']}` : `${style['tab-menu']}`} onClick={onClickHandler}>
+                        <button value="amount" className={conversionUnits === 'amount' ? `${style['tab-menu']} ${style['is-active']}` : `${style['tab-menu']}`} onClick={onClickHandler}>
                             <p className={`${style['tab-text']}`}>
-                                <span>1만</span>
+                                <span>금액</span>
                             </p>
                         </button>
-                        <div className={`${style['tab-indicator']}`} style={conversionUnits === '1M' ? { left: '0' } : { left: '50%' }}></div>
+                        <div className={`${style['tab-indicator']}`} style={conversionUnits === 'ratio' ? { left: '0' } : { left: '50%' }}></div>
                     </div>
                 </div>
-            </div> */}
+            </div>
             <div className={`${style['input-group']}`}>
                 <div>
                     <p className={`${style['label']}`}>전환 비율</p>
