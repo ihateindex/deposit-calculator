@@ -10,7 +10,7 @@ import DepositResult from './components/DepositResult/DepositResult';
 const INITIAL_DEPOSIT_DATA = {
     'default-deposit': '',
     'default-rent': '',
-    'conversion-interest-rate': '6',
+    'conversion-interest-rate': '7',
     'conversion-rate': '',
     'conversion-deposit': '',
     'conversion-rent': '',
@@ -29,7 +29,7 @@ function App() {
             setDepositData((prevData) => {
                 return {
                     ...prevData,
-                    ['conversion-interest-rate']: '6',
+                    ['conversion-interest-rate']: '7',
                 };
             });
         }
@@ -37,7 +37,7 @@ function App() {
             setDepositData((prevData) => {
                 return {
                     ...prevData,
-                    ['conversion-interest-rate']: '2.5',
+                    ['conversion-interest-rate']: '3.5',
                 };
             });
         }
