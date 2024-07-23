@@ -8,6 +8,7 @@ const formatter = new Intl.NumberFormat('ko-KR', {
 
 const DepositResult = (props) => {
     const mode = props.depositMode;
+    const conversionUnits = props.conversionUnits;
     return (
         <Card>
             <div className={`${style['result']}`}>
@@ -49,13 +50,21 @@ const DepositResult = (props) => {
                         </div>
                     )}
                 </div>
-                <div className={`${style['item']}`}>
-                    <p className={`${style['title']}`}>전환 비율</p>
-                    <p className={`${style['number']}`}>
-                        <span>{+props.resultData['conversion-rate']}</span>
-                        <span>%</span>
-                    </p>
-                </div>
+                {conversionUnits === 'ratio' ? (
+                    <>
+                        <div className={`${style['item']}`}>
+                            <p className={`${style['title']}`}>전환 비율</p>
+                            <p className={`${style['number']}`}>
+                                <span>{+props.resultData['conversion-rate']}</span>
+                                <span>%</span>
+                            </p>
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <div className={`${style['item']}`}></div>
+                    </>
+                )}
                 <div className={`${style['item']}`}>
                     <p className={`${style['title']}`}>전환 보증금</p>
                     <p className={`${style['number']}`}>{formatter.format(+props.resultData['conversion-deposit'])}</p>
